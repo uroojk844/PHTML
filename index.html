@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="w3.css">
+</head>
+<body>
+    
+    <textarea id="textarea" rows="15" cols="80"></textarea>
+    <button>Compile</button>
+    <div id="output"></div>
+
+    <script src="jquery-3.4.1.js"></script>
+    <script src="compiler.js"></script>
+    <script>
+        var alltags = {};
+        
+        class tag {
+            constructor(t1, t2){
+                let temp = document.createElement(t1);
+                $(temp).text(t2);
+                $(temp).attr('id',t2);
+                $('#output').append(temp);
+            }
+        }
+
+        $('button').click(function (e) { 
+            $('#output').text("");
+            compile($('#textarea').val());
+        });
+    </script>
+</body>
+</html>
